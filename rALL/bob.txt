@@ -1,0 +1,6 @@
+Install bob w sudo pacman -S bob / package manager installer
+Run bob install stable and then bob use stable.
+Make sure ~/.local/bin exists.
+Create a symlink from bob’s nvim to ~/.local/bin/nvim.
+Add export PATH="$HOME/.local/bin:$PATH" to your shell config (~/.bashrc or ~/.zshrc).
+Reload the shell.
