@@ -4,6 +4,7 @@ set -euo pipefail
 DOTFILES_DIR="$HOME/Work/dotfiles"
 
 LINKS=(
+  "hypr/bindings.conf:.config/hypr/bindings.conf"
   "hypr/input.conf:.config/hypr/input.conf"
   "nvim/init.lua:.config/nvim/init.lua"
 )
