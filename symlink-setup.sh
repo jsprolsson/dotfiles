@@ -7,6 +7,7 @@ LINKS=(
   "hypr/bindings.conf:.config/hypr/bindings.conf"
   "hypr/input.conf:.config/hypr/input.conf"
   "nvim/init.lua:.config/nvim/init.lua"
+  "overrides/omarchy-overrides.conf:.config/overrides/omarchy-overrides.conf"
 )
 
 for entry in "${LINKS[@]}"; do
