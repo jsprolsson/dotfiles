@@ -4,11 +4,11 @@ set -euo pipefail
 DOTFILES_DIR="$HOME/Work/dotfiles"
 
 LINKS=(
-  "linux/hypr/bindings.conf:.config/hypr/bindings.conf"
-  "linux/hypr/input.conf:.config/hypr/input.conf"
-  "linux/overrides/omarchy-overrides.conf:.config/overrides/omarchy-overrides.conf"
+  "base/nvim/init.lua:.config/nvim/init.lua"
+  "base/tmux/tmux.conf:.config/tmux/tmux.conf"
 )
 
+if [ "$#" -eq 0 ]; then
 for entry in "${LINKS[@]}"; do
   IFS=":" read -r src_rel tgt_rel <<<"$entry"
 
@@ -21,3 +21,13 @@ for entry in "${LINKS[@]}"; do
   ln -s "$src" "$tgt"
   echo "Linked $tgt → $src"
 done
+exit 0
+elif [ "$1" = "link" ]; then
+    for link in "${LINKS[@]}"; do
+      echo "$link"
+    done
+  exit 0
+else
+  echo "Unclear flag/variable passed in"
+  exit 1
+fi
