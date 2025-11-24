@@ -26,6 +26,7 @@ vim.cmd("set completeopt+=noselect")
 
 require 'mini.pick'.setup()
 require 'oil'.setup()
+require 'mason'.setup()
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
