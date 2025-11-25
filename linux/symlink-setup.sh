@@ -2,11 +2,21 @@
 set -euo pipefail
 
 DOTFILES_DIR="$HOME/Work/dotfiles"
+base_links=()
+while IFS= read -r line; do
+  base_links+=("$line")
+done < <("$HOME/Work/dotfiles/base/base-symlink-setup.sh" link)
+
+
+if [ ${#base_links[@]} -eq 0 ]; then
+  echo "base links not found"
+fi
 
 LINKS=(
   "linux/hypr:.config/hypr"
   "linux/hypr:.config/hypr"
   "linux/overrides:.config/overrides"
+  "${base_links[@]}"  
 )
 
 for entry in "${LINKS[@]}"; do
