@@ -22,20 +22,19 @@ vim.pack.add({
 	'https://github.com/neovim/nvim-lspconfig'
 })
 
-vim.cmd("set completeopt+=noselect")
-
 require 'mini.pick'.setup()
 require 'oil'.setup()
 require 'mason'.setup()
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>e', ':Oil <CR>')
 
 vim.lsp.enable({ "lua_ls", "roslyn_ls" })
-dofile(os.getenv("HOME") .. "/Work/dotfiles/base/nvim/lsp_configs/roslyn_ls.lua")
+require('lsp_configs.roslyn_ls')
 require('render-markdown').setup({})
 
-vim.g.gruvbox_material_background = "medium"   -- or "soft", "hard"
-vim.g.gruvbox_material_palette    = "material" -- or "mix", "original"
+vim.g.gruvbox_material_background = "medium"
+vim.g.gruvbox_material_palette    = "material"
 vim.cmd("colorscheme gruvbox-material")

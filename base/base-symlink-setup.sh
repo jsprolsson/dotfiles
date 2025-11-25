@@ -4,8 +4,8 @@ set -euo pipefail
 DOTFILES_DIR="$HOME/Work/dotfiles"
 
 LINKS=(
-  "base/nvim/init.lua:.config/nvim/init.lua"
-  "base/tmux/tmux.conf:.config/tmux/tmux.conf"
+  "base/nvim:.config/nvim"
+  "base/tmux:.config/tmux"
 )
 
 if [ "$#" -eq 0 ]; then
@@ -16,7 +16,7 @@ for entry in "${LINKS[@]}"; do
   tgt="$HOME/$tgt_rel"
 
   # Remove old file/symlink if present
-  rm -f "$tgt"
+  rm -rf "$tgt"
 
   ln -s "$src" "$tgt"
   echo "Linked $tgt → $src"
