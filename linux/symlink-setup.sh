@@ -4,9 +4,9 @@ set -euo pipefail
 DOTFILES_DIR="$HOME/Work/dotfiles"
 
 LINKS=(
-  "linux/hypr/bindings.conf:.config/hypr/bindings.conf"
-  "linux/hypr/input.conf:.config/hypr/input.conf"
-  "linux/overrides/omarchy-overrides.conf:.config/overrides/omarchy-overrides.conf"
+  "linux/hypr:.config/hypr"
+  "linux/hypr:.config/hypr"
+  "linux/overrides:.config/overrides"
 )
 
 for entry in "${LINKS[@]}"; do
@@ -16,7 +16,7 @@ for entry in "${LINKS[@]}"; do
   tgt="$HOME/$tgt_rel"
 
   # Remove old file/symlink if present
-  rm -f "$tgt"
+  rm -rf "$tgt"
 
   ln -s "$src" "$tgt"
   echo "Linked $tgt → $src"

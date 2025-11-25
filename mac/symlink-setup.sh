@@ -14,7 +14,7 @@ if [ ${#base_links[@]} -eq 0 ]; then
 fi
 
 LINKS=(
-  "mac/ghostty/config:.config/ghostty/config"
+  "mac/ghostty:.config/ghostty"
   "${base_links[@]}"
 )
 
@@ -25,7 +25,7 @@ for entry in "${LINKS[@]}"; do
   tgt="$HOME/$tgt_rel"
 
   # Remove old file/symlink if present
-  rm -f "$tgt"
+  rm -rf "$tgt"
 
   ln -s "$src" "$tgt"
   echo "Linked $tgt → $src"
